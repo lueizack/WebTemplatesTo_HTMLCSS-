@@ -1,0 +1,1067 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scene</title>
+  <style>
+  /* Global */
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  section {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    /* old backgrounds #2d65b8, #93c8e7 */
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#93c8e7), to(#2d65b8)); 
+    background: -webkit-linear-gradient(top, #2d65b8, #93c8e7); /* Safari 5.1, Chrome 10+ */
+    background: -moz-linear-gradient(top, #2d65b8, #93c8e7); /* Firefox 3.6+ */
+    background: -ms-linear-gradient(top, #2d65b8, #93c8e7); /* IE 10 */
+    background: -o-linear-gradient(top, #2d65b8, #93c8e7); /* Opera 11.10+ */
+  }
+  /* Windmill */
+  .windmill-holder {
+    width: 500px;
+    height: 500px;
+    _top: -12px;
+    right: 0;
+     position: absolute;
+    -webkit-transform:scale(1);
+    -moz-transform:scale(1);
+    -o-transform:scale(1);
+    -ms-transform:scale(1);
+    transform:scale(1);
+    visibility: hidden;
+  }
+  #windmill {
+    -webkit-animation: windmillEffects 2s linear infinite;
+    -moz-animation: windmillEffects 2s linear infinite;
+    -ms-animation: windmillEffects 2s linear infinite;
+    -o-animation: windmillEffects 2s linear infinite;
+    animation: windmillEffects 2s linear infinite;
+    -webkit-transform-origin: 250px 250px;
+    -moz-transform-origin: 250px 250px;
+    -o-transform-origin: 250px 250px;
+    -ms-transform-origin: 250px 250px;
+    transform-origin: 250px 250px;
+    position: absolute;
+    top: -50px;
+  }
+  @keyframes windmillEffects {
+    0% {
+      -webkit-transform:scale(0.6) rotate(0deg);
+      -moz-transform:scale(0.6) rotate(0deg);
+      -o-transform:scale(0.6) rotate(0deg);
+      -ms-transform:scale(0.6) rotate(0deg);
+      transform:scale(0.6) rotate(0deg);
+    }
+    100% { 
+      -webkit-transform:scale(0.6) rotate(360deg);
+      -moz-transform:scale(0.6) rotate(360deg);
+      -o-transform:scale(0.6) rotate(360deg);
+      -ms-transform:scale(0.6) rotate(360deg);
+      transform:scale(0.6) rotate(360deg);
+    }
+  }
+  @-webkit-keyframes windmillEffects {
+    0% {
+      -webkit-transform:scale(0.6) rotate(0deg);
+      -moz-transform:scale(0.6) rotate(0deg);
+      -o-transform:scale(0.6) rotate(0deg);
+      -ms-transform:scale(0.6) rotate(0deg);
+      transform:scale(0.6) rotate(0deg);
+    }
+    100% { 
+      -webkit-transform:scale(0.6) rotate(360deg);
+      -moz-transform:scale(0.6) rotate(360deg);
+      -o-transform:scale(0.6) rotate(360deg);
+      -ms-transform:scale(0.6) rotate(360deg);
+      transform:scale(0.6) rotate(360deg);
+    }
+  }
+  #windmillTruc {
+    position: absolute;
+    top: 160px;
+    left: 235px;
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  /* Sun */
+  #sun {
+    position: absolute;
+    z-index: 999;
+    top: -11px;
+    left: -10px;
+    -webkit-animation: sunEffects 20s infinite;
+    -moz-animation: sunEffects 20s infinite;
+    -ms-animation: sunEffects 20s infinite;
+    -o-animation: sunEffects 20s infinite;
+    animation: sunEffects 20s infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -ms-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-timing-function: linear;
+  }
+  .sun-rays {
+    background: orange;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    right: 35%;
+    top: 15px;
+    text-align: center;
+    margin: 50px;
+    z-index: 0;
+    -webkit-animation: sunEffects 20s infinite;
+    -moz-animation: sunEffects 20s infinite;
+    -ms-animation: sunEffects 20s infinite;
+    -o-animation: sunEffects 20s infinite;
+    animation: sunEffects 20s infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -ms-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-timing-function: linear;
+  }
+  .sun-rays:before,
+  .sun-rays:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 80px;
+    background: orange;
+    z-index: 0;
+  }
+  .sun-rays:before {
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    transform: rotate(30deg);
+  }
+  .sun-rays:after {
+    -webkit-transform: rotate(60deg);
+    -moz-transform: rotate(60deg);
+    -o-transform: rotate(60deg);
+    -ms-transform: rotate(60deg);
+    transform: rotate(60deg);
+  }
+  @keyframes sunEffects {
+    0% {
+      -webkit-transform: rotate(0deg) scale(1);
+      -moz-transform: rotate(0deg) scale(1);
+      -o-transform: rotate(0deg) scale(1);
+      -ms-transform: rotate(0deg) scale(1);
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      -webkit-transform: rotate(180deg) scale(1.1);
+      -moz-transform: rotate(180deg) scale(1.1);
+      -o-transform: rotate(180deg) scale(1.1);
+      -ms-transform: rotate(180deg) scale(1.1);
+      transform: rotate(180deg) scale(1.1);
+    }
+    100% { 
+      -webkit-transform: rotate(360deg) scale(1);
+      -moz-transform: rotate(360deg) scale(1);
+      -o-transform: rotate(360deg) scale(1);
+      -ms-transform: rotate(360deg) scale(1);
+      transform: rotate(360deg) scale(1);
+    }
+  }
+  @-webkit-keyframes sunEffects {
+    0% {
+      -webkit-transform: rotate(0deg) scale(1);
+      -moz-transform: rotate(0deg) scale(1);
+      -o-transform: rotate(0deg) scale(1);
+      -ms-transform: rotate(0deg) scale(1);
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      -webkit-transform: rotate(180deg) scale(1.1);
+      -moz-transform: rotate(180deg) scale(1.1);
+      -o-transform: rotate(180deg) scale(1.1);
+      -ms-transform: rotate(180deg) scale(1.1);
+      transform: rotate(180deg) scale(1.1);
+    }
+    100% { 
+      -webkit-transform: rotate(360deg) scale(1);
+      -moz-transform: rotate(360deg) scale(1);
+      -o-transform: rotate(360deg) scale(1);
+      -ms-transform: rotate(360deg) scale(1);
+      transform: rotate(360deg) scale(1);
+    }
+  }
+
+  /* Waves */
+  .waves-holder {
+    width: 100%;
+    height: 15%;
+    position: absolute;
+    bottom: 0;
+  }
+  @keyframes wave1 {
+    0% {
+      left: -150px; 
+    }
+    50% {
+      left: 0;
+    }
+    100% {
+     left: -150px;
+    }
+  }  
+  @-webkit-keyframes wave1 {
+    0% {
+      left: -150px; 
+    }
+    50% {
+      left: 0;
+    }
+    100% {
+     left: -150px;
+    }
+  }  
+  #wave1 {
+    width: 1800px;
+    left: -200px;
+    overflow: visible;
+    position: absolute;
+    z-index: 1;
+    -webkit-animation: wave1 5s infinite linear;
+    -moz-animation: wave1 5s infinite linear;
+    -ms-animation: wave1 5s infinite linear;
+    -o-animation: wave1 5s infinite linear;
+    animation: wave1 5s infinite linear;
+  }
+  @keyframes wave2 {
+    0% {
+      left: -100px; 
+    }
+    50% {
+      left: 0;
+    }
+    100% {
+      left: -100px;
+    }
+  }   
+  @-webkit-keyframes wave2 {
+    0% {
+      left: -100px; 
+    }
+    50% {
+      left: 0;
+    }
+    100% {
+      left: -100px;
+    }
+  } 
+  #wave2 {
+    width: 1800px;
+    left: -200px;
+    position: absolute;
+    overflow: visible;
+    z-index: 2;
+    -webkit-animation: wave2 7s infinite linear;
+    -moz-animation: wave2 7s infinite linear;
+    -ms-animation: wave2 7s infinite linear;
+    -o-animation: wave2 7s infinite linear;
+    animation: wave2 7s infinite linear;
+
+  }
+  @keyframes wave3 {
+    0% {
+      left: -200px; 
+    }
+    50% {
+      left: 0;
+    }
+    100% {
+      left: -200px;
+    }
+  }   
+  @-webkit-keyframes wave3 {
+    0% {
+      left: -200px; 
+    }
+    50% {
+      left: 0;
+    }
+    100% {
+      left: -200px;
+    }
+  } 
+  #wave3 {
+    width: 1800px;
+    left: 100px;
+    position: absolute;
+    overflow: visible;
+    z-index:3;
+    -webkit-animation: wave3 9s infinite linear;
+    -moz-animation: wave3 9s infinite linear;
+    -ms-animation: wave3 9s infinite linear;
+    -o-animation: wave3 9s infinite linear;
+    animation: wave3 9s infinite linear;
+  } 
+  @keyframes dolphinJump1 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% { 
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(300deg);
+      -o-transform: rotate(300deg);
+      -ms-transform: rotate(300deg);
+      transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes dolphinJump1 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% { 
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(300deg);
+      -o-transform: rotate(300deg);
+      -ms-transform: rotate(300deg);
+      transform: rotate(360deg);
+    }
+  }  
+  @keyframes dolphinJump2 {
+    0% {
+      left: 500px;
+      -webkit-transform: rotate(-200deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% { 
+      -webkit-transform: rotate(100deg);
+      -moz-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }    
+  }  
+  @-webkit-keyframes dolphinJump2 {
+    0% {
+      left: 500px;
+      -webkit-transform: rotate(-200deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% { 
+      -webkit-transform: rotate(100deg);
+      -moz-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }    
+  }  
+  #dol1 {
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    -webkit-transform-origin: 100% 200%;
+    -webkit-animation: dolphinJump1 5s infinite linear;
+    
+  }
+  #dol2 {
+    position: absolute;
+    bottom: 0;
+    left: 500px;
+    z-index: 2;
+    -webkit-transform-origin: 100% 200%;
+    -webkit-animation: dolphinJump2 5s infinite linear;
+    
+  }  
+  @keyframes cloud1Ani {
+    0% {
+      left: 0;
+    }
+    2% {
+      opacity: 1;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      left: 1600px;
+      opacity: 1;
+    }
+  }  
+  @-webkit-keyframes cloud1Ani {
+    0% {
+      left: 0;
+    }
+    2% {
+      opacity: 1;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      left: 1600px;
+      opacity: 1;
+    }
+  }
+  #cloud1{
+    position: absolute;
+    top:50px;
+    left: 0;
+    z-index: 10000;
+    -webkit-animation: cloud1Ani 15s infinite linear;
+    -moz-animation: cloud1Ani 15s infinite linear;
+    -ms-animation: cloud1Ani 15s infinite linear;
+    -o-animation: cloud1Ani 15s infinite linear;
+    animation: cloud1Ani 15s infinite linear;
+  }
+  @keyframes cloud2Ani {
+    0% {
+      left: 0;
+    }
+    2% {
+      opacity: 1;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      left: 1600px;
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes cloud2Ani {
+    0% {
+      left: 0;
+    }
+    2% {
+      opacity: 1;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      left: 1600px;
+      opacity: 1;
+    }
+  }
+  #cloud2{
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 10000;
+    -webkit-animation: cloud2Ani 12s infinite linear;
+    -moz-animation: cloud2Ani 12s infinite linear;
+    -ms-animation: cloud2Ani 12s infinite linear;
+    -o-animation: cloud2Ani 12s infinite linear;
+    animation: cloud2Ani 12s infinite linear;
+  }
+  @keyframes cloud3Ani {
+    0% {
+      left: 250px;
+    }
+    2% {
+    }
+    20% {
+      top: 50px;
+      opacity: 1;
+    }
+    40% {
+      top: 30px;
+      opacity: 1;
+    }
+    60% {
+      top: 70px;
+      opacity: 1;
+    }
+    100% {
+      left: 1600px;
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes cloud3Ani {
+    0% {
+      left: 250px;
+    }
+    2% {
+    }
+    20% {
+      top: 50px;
+      opacity: 1;
+    }
+    40% {
+      top: 30px;
+      opacity: 1;
+    }
+    60% {
+      top: 70px;
+    }
+    100% {
+      left: 1600px;
+    }
+  }
+  #cloud3 {
+    position: absolute;
+    top: 0;
+    left: 250px;
+    -webkit-animation: cloud3Ani 20s infinite linear;
+    -moz-animation: cloud3Ani 20s infinite linear;
+    -ms-animation: cloud3Ani 20s infinite linear;
+    -o-animation: cloud3Ani 20s infinite linear;
+    animation: cloud3Ani 20s infinite linear;
+  }
+  @keyframes cloud4Ani {
+    0% {
+      top: 100px;
+      right: 100px;
+      opacity: 0.7;
+    }
+    25% {
+      top: 50px;
+      opacity: 1;
+    }
+    50% {
+      top: 100px;
+      opacity: 1;
+    }
+    75% {
+      opacity: 0.5;
+    }
+    76% {
+      opacity: 1;
+    }
+    100% {
+      right: 1600px;
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes cloud4Ani {
+    0% {
+      top: 100px;
+      right: 100px;
+      opacity: 0.7;
+    }
+    25% {
+      top: 50px;
+      opacity: 1;
+    }
+    50% {
+      top: 100px;
+      opacity: 1;
+    }
+    75% {
+      opacity: 0.5;
+    }
+    76% {
+      opacity: 1;
+    }
+    100% {
+      right: 1600px;
+      opacity: 1;
+    }
+  }
+  #cloud4 {
+    position: absolute;
+    top: 0;
+    right: 100px;
+    -webkit-animation: cloud4Ani 15s infinite linear;
+    -moz-animation: cloud4Ani 15s infinite linear;
+    -ms-animation: cloud4Ani 15s infinite linear;
+    -o-animation: cloud4Ani 15s infinite linear;
+    animation: cloud4Ani 15s infinite linear;
+  }
+  @keyframes "rotate1" {
+    from {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(20deg);
+      -moz-transform: rotate(20deg);
+      -o-transform: rotate(20deg);
+      -ms-transform: rotate(20deg);
+      transform: rotate(20deg);
+    }
+  }
+  @-moz-keyframes rotate1 {
+    from {
+      -moz-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -moz-transform: rotate(20deg);
+      transform: rotate(20deg);
+    }
+  }
+  @-webkit-keyframes "rotate1" {
+    from {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(20deg);
+      transform: rotate(20deg);
+    }
+  }
+  @-ms-keyframes "rotate1" {
+    from {
+      -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(20deg);
+      transform: rotate(20deg);
+    }
+  }
+
+  @-o-keyframes "rotate1" {
+    from {
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -o-transform: rotate(20deg);
+      transform: rotate(20deg);
+    }
+  }
+  
+  .sunburst {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 10px;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+  }
+  .sunburst .sunburst-outer {
+    width: 2000px;
+    height: 910px;
+    padding-top: 1090px;
+    margin: -900px 0 0 -200px;
+    -webkit-animation-name: rotate1;
+    -webkit-animation-duration:2s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function:linear;
+    -moz-animation-name: rotate1;
+    -moz-animation-duration:2s;
+    -moz-animation-iteration-count:infinite;
+    -moz-animation-timing-function:linear;
+  }
+  .sunburst i {
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: 90px 1000px;
+    margin: -180px 0 0 0;
+    border-color: transparent skyblue;
+    opacity: 0.1;
+    border-style: solid;
+    position: absolute;
+    z-index: 10;
+  }
+  .sunburst i:nth-child(1) {
+  -webkit-transform: rotate(20deg);
+  -moz-transform: rotate(20deg);
+  -o-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  transform: rotate(20deg);
+}
+
+.sunburst i:nth-child(2) {
+  -webkit-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  -o-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  transform: rotate(40deg);
+}
+
+.sunburst i:nth-child(3) {
+  -webkit-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  -o-transform: rotate(60deg);
+  -ms-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+
+.sunburst i:nth-child(4) {
+  -webkit-transform: rotate(80deg);
+  -moz-transform: rotate(80deg);
+  -o-transform: rotate(80deg);
+  -ms-transform: rotate(80deg);
+  transform: rotate(80deg);
+}
+
+.sunburst i:nth-child(5) {
+  -webkit-transform: rotate(100deg);
+  -moz-transform: rotate(100deg);
+  -o-transform: rotate(100deg);
+  -ms-transform: rotate(100deg);
+  transform: rotate(100deg);
+}
+
+.sunburst i:nth-child(6) {
+  -webkit-transform: rotate(120deg);
+  -moz-transform: rotate(120deg);
+  -o-transform: rotate(120deg);
+  -ms-transform: rotate(120deg);
+  transform: rotate(120deg);
+}
+
+.sunburst i:nth-child(7) {
+  -webkit-transform: rotate(140deg);
+  -moz-transform: rotate(140deg);
+  -o-transform: rotate(140deg);
+  -ms-transform: rotate(140deg);
+  transform: rotate(140deg);
+}
+
+.sunburst i:nth-child(8) {
+  -webkit-transform: rotate(160deg);
+  -moz-transform: rotate(160deg);
+  -o-transform: rotate(160deg);
+  -ms-transform: rotate(160deg);
+  transform: rotate(160deg);
+}
+
+.sunburst i:nth-child(9) {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+  </style>
+</head>
+<body>
+  <section>
+    <div class="windmill-holder">
+      <canvas id="windmillTruc" width="30" height="350"></canvas>
+      <canvas id="windmill" width="500" height="500"></canvas>
+    </div>
+    <div class="waves-holder">
+      <canvas id="wave1" width="1800" height="200"></canvas>
+      <canvas id="wave2" width="1800" height="200"></canvas>
+      <canvas id="wave3" width="1800" height="200"></canvas>
+      <canvas id="wave4"></canvas>
+    </div>
+    <div id="dolphin"> 
+      <canvas id="dol1" width="250" height="130"></canvas>
+      <canvas id="dol2" width="250" height="130"></canvas>
+    </div>
+
+    <div class="clouds">
+      <canvas id="cloud1" width="340" height="170"></canvas>
+      <canvas id="cloud2" width="200" height="170"></canvas>
+      <canvas id="cloud3" width="200" height="170"></canvas>
+      <canvas id="cloud4" width="300" height="200"></canvas>
+    </div>
+    <div class="sunburst">
+      <div class="sunburst-outer">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <div class="sun-rays">
+        <canvas id="sun" width="100" height="100"></canvas>
+      </div>
+    </div>
+  </section>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        
+        //var viewportWidth = $(window).width();
+        var viewportHeight = $(document).height();
+        $('section').css('height', viewportHeight);
+        });
+    </script>
+    <script>
+      // Sun
+      var sun = document.getElementById("sun");
+      var ctxSun = sun.getContext("2d");
+      var sunGrd = ctxSun.createRadialGradient(50, 50, 21, 50, 50, 65);
+        sunGrd.addColorStop(0,"orange");
+        sunGrd.addColorStop(1,"yellow");
+        ctxSun.beginPath();
+        ctxSun.arc(50, 50, 42, 0, 2*Math.PI);
+        ctxSun.fillStyle = sunGrd;
+        ctxSun.fill();
+        ctxSun.closePath();
+
+      // Windmill
+      var windmill = document.getElementById("windmill");
+      var ctxWindmill = windmill.getContext("2d");
+      var windmillGrd = ctxWindmill.createRadialGradient(250, 250, 20, 250, 250, 30);
+        windmillGrd.addColorStop(0, "#dcdcdc");
+        windmillGrd.addColorStop(1, "#b8b8b8");
+        
+      ctxWindmill.beginPath();
+      ctxWindmill.moveTo(250, 250);
+      ctxWindmill.lineTo(230, 250);
+      ctxWindmill.lineTo(250, 10);
+      ctxWindmill.lineTo(270, 250);
+      ctxWindmill.closePath();
+      ctxWindmill.fillStyle = windmillGrd;
+      ctxWindmill.fill();
+      
+      ctxWindmill.beginPath();
+      ctxWindmill.moveTo(250, 250);
+      ctxWindmill.lineTo(220, 250);
+      ctxWindmill.lineTo(450, 400);
+      ctxWindmill.lineTo(280, 250);
+      ctxWindmill.closePath();
+      ctxWindmill.fillStyle = windmillGrd;
+      ctxWindmill.fill();
+      
+      ctxWindmill.beginPath();
+      ctxWindmill.moveTo(250, 250);
+      ctxWindmill.lineTo(230, 240);
+      ctxWindmill.lineTo(50, 400);
+      ctxWindmill.lineTo(280, 250);
+      ctxWindmill.closePath();
+      ctxWindmill.fillStyle = windmillGrd;
+      ctxWindmill.fill();
+      
+      ctxWindmill.beginPath();
+      ctxWindmill.arc(250, 250, 30, 0, 2*Math.PI);
+      ctxWindmill.strokeStyle = "#000";
+      ctxWindmill.fillStyle = windmillGrd;
+      ctxWindmill.fill();
+      ctxWindmill.closePath();
+
+      // Windmill trunc
+      var windmillTrunc = document.getElementById("windmillTruc");
+      var ctxWinTrunc = windmillTrunc.getContext("2d");
+      var winTruncGrd = ctxWinTrunc.createLinearGradient(0, 0, 15, 10);
+        winTruncGrd.addColorStop(0, "white");
+        winTruncGrd.addColorStop(1, "gray");
+        ctxWinTrunc.beginPath();
+        ctxWinTrunc.moveTo(15, 0);
+        ctxWinTrunc.lineTo(0, 350);
+        ctxWinTrunc.lineTo(30, 350);
+        ctxWinTrunc.fillStyle = winTruncGrd;
+        ctxWinTrunc.fill();
+        ctxWinTrunc.closePath();
+
+      // Wave 1
+      var wave1 = document.getElementById("wave1");
+      var ctxWave1 = wave1.getContext("2d");
+      var ctxWave1Grd = ctxWave1.createLinearGradient(0, 0, 0, 170);
+        ctxWave1Grd.addColorStop(0,"#0a9ee4");
+        ctxWave1Grd.addColorStop(1,"#26ace9");
+        ctxWave1.beginPath();
+        ctxWave1.moveTo(0, 50);
+        ctxWave1.bezierCurveTo(113, 20, 155, 20, 250, 50);
+        ctxWave1.bezierCurveTo(345, 80, 425, 80, 500, 50);
+        ctxWave1.bezierCurveTo(575, 20, 680, 20, 750, 50);
+        ctxWave1.bezierCurveTo(825, 80, 945, 80, 1000, 55);
+        ctxWave1.bezierCurveTo(1100, 20, 1200, 20, 1250, 50);
+        ctxWave1.bezierCurveTo(1300, 80, 1500, 80, 1700, 50);
+        ctxWave1.lineTo(1800, 200);
+        ctxWave1.lineTo(0, 200);
+        ctxWave1.closePath();
+        ctxWave1.lineWidth = 3;
+        ctxWave1.fillStyle = ctxWave1Grd;
+        ctxWave1.fill();
+
+      // Dolphin
+      var d = document.getElementById("dol1");
+      var ctxDolphin = d.getContext("2d");
+        ctxDolphin.beginPath();
+        ctxDolphin.moveTo(0, 109);
+        ctxDolphin.bezierCurveTo(6, 105, 12, 99, 23, 96);
+        ctxDolphin.bezierCurveTo(42, 88, 17, 80, 84, 28);
+        ctxDolphin.bezierCurveTo(97, 20, 88, 7, 78, 2);
+        ctxDolphin.bezierCurveTo(103, 0, 105, 20, 122, 13);
+        ctxDolphin.bezierCurveTo(148, 7, 206, 9, 213, 46);
+        ctxDolphin.bezierCurveTo(230, 57, 224, 63, 207, 56);
+        ctxDolphin.bezierCurveTo(192, 50, 172, 51, 170, 52);
+        ctxDolphin.bezierCurveTo(165, 61, 152, 62, 146, 59);
+        ctxDolphin.bezierCurveTo(148, 58, 148, 57, 148, 56);
+        ctxDolphin.bezierCurveTo(118, 60, 74, 56, 38, 95);
+        ctxDolphin.bezierCurveTo(30, 101, 40, 107, 40, 115);
+        ctxDolphin.bezierCurveTo(41, 122, 35, 93, 0,  109);
+        ctxDolphin.closePath();
+        ctxDolphin.fillStyle = "#404040";
+        ctxDolphin.fill(); 
+
+      // Dolphin2
+      var d = document.getElementById("dol2");
+      var ctxDolphin2 = d.getContext("2d");
+        ctxDolphin2.beginPath();
+        ctxDolphin2.moveTo(0, 109);
+        ctxDolphin2.bezierCurveTo(6, 105, 12, 99, 23, 96);
+        ctxDolphin2.bezierCurveTo(42, 88, 17, 80, 84, 28);
+        ctxDolphin2.bezierCurveTo(97, 20, 88, 7, 78, 2);
+        ctxDolphin2.bezierCurveTo(103, 0, 105, 20, 122, 13);
+        ctxDolphin2.bezierCurveTo(148, 7, 206, 9, 213, 46);
+        ctxDolphin2.bezierCurveTo(230, 57, 224, 63, 207, 56);
+        ctxDolphin2.bezierCurveTo(192, 50, 172, 51, 170, 52);
+        ctxDolphin2.bezierCurveTo(165, 61, 152, 62, 146, 59);
+        ctxDolphin2.bezierCurveTo(148, 58, 148, 57, 148, 56);
+        ctxDolphin2.bezierCurveTo(118, 60, 74, 56, 38, 95);
+        ctxDolphin2.bezierCurveTo(30, 101, 40, 107, 40, 115);
+        ctxDolphin2.bezierCurveTo(41, 122, 35, 93, 0,  109);
+        ctxDolphin2.closePath();
+        ctxDolphin2.fillStyle = "#404040";
+        ctxDolphin2.fill();
+
+      // Wave 2
+      var wave2 = document.getElementById("wave2");
+      var ctxWave2 = wave2.getContext("2d");
+      var ctxWave2Grd = ctxWave2.createLinearGradient(0, 0, 0, 100);
+        ctxWave2Grd.addColorStop(0,"#076eb9");
+        ctxWave2Grd.addColorStop(1,"#0996de");
+        ctxWave2.beginPath();
+        ctxWave2.moveTo(0, 50);
+        ctxWave2.bezierCurveTo(113, 20, 155, 0, 250, 50);
+        ctxWave2.bezierCurveTo(345, 100, 425, 80, 500, 50);
+        ctxWave2.bezierCurveTo(575, 20, 680, 20, 750, 50);
+        ctxWave2.bezierCurveTo(825, 80, 945, 80, 1000, 55);
+        ctxWave2.bezierCurveTo(1100, 20, 1150, 20, 1300, 50);
+        ctxWave2.bezierCurveTo(1400, 80, 1550, 100, 1800, 50);
+        ctxWave2.lineTo(1800, 200);
+        ctxWave2.lineTo(0, 200);
+        ctxWave2.closePath();
+        ctxWave2.lineWidth = 3;
+        ctxWave2.fillStyle = ctxWave2Grd;
+        ctxWave2.fill();
+
+      // Wave 3
+      var wave3 = document.getElementById("wave3");
+      var ctxWave3 = wave3.getContext("2d");
+      var ctxWave3Grd = ctxWave3.createLinearGradient(0, 0, 0, 170);
+        ctxWave3Grd.addColorStop(0,"#0882cd");
+        ctxWave3Grd.addColorStop(1,"#82c4fb");
+        ctxWave3.beginPath();
+        ctxWave3.moveTo(0, 50);
+        ctxWave3.bezierCurveTo(113, 20, 155, 20, 250, 50);
+        ctxWave3.bezierCurveTo(345, 80, 425, 80, 500, 50);
+        ctxWave3.bezierCurveTo(575, 20, 680, 20, 750, 50);
+        ctxWave3.bezierCurveTo(825, 80, 945, 80, 1000, 55);
+        ctxWave3.bezierCurveTo(1100, 20, 1150, 20, 1300, 50);
+        ctxWave3.bezierCurveTo(1400, 80, 1550, 100, 1800, 50);
+        ctxWave3.lineTo(1800, 200);
+        ctxWave3.lineTo(0, 200);
+        ctxWave3.closePath();
+        ctxWave3.lineWidth = 3;
+        ctxWave3.fillStyle = ctxWave3Grd;
+        ctxWave3.fill(); 
+
+      // Cloud 1
+        var cloud1 = document.getElementById("cloud1");
+        var ctxCloud1 = cloud1.getContext("2d");
+        var ctxCloud1Grd = ctxCloud1.createLinearGradient(0, 0, 0, 100);
+        ctxCloud1Grd.addColorStop(0,"#ccc");
+        ctxCloud1Grd.addColorStop(1,"white");
+        ctxCloud1.beginPath();
+        ctxCloud1.moveTo(75, 132);
+        ctxCloud1.bezierCurveTo(30, 145, 5, 82, 73, 88);
+        ctxCloud1.bezierCurveTo(84, 74, 103, 66, 109, 70);
+        ctxCloud1.bezierCurveTo(109, 42, 165, 8, 199, 58);
+        ctxCloud1.bezierCurveTo(230, 52, 247, 68, 247, 74);
+        ctxCloud1.bezierCurveTo(310, 65, 324, 136, 237, 128);
+        ctxCloud1.bezierCurveTo(209, 162, 173, 148, 165, 144);
+        ctxCloud1.bezierCurveTo(153, 154, 99, 167, 76, 133);
+        ctxCloud1.closePath();
+        ctxCloud1.shadowOffsetX = 0;
+        ctxCloud1.shadowOffsetY = 0;
+        ctxCloud1.shadowBlur = 10;
+        ctxCloud1.shadowColor = "#fff";
+        ctxCloud1.fillStyle = ctxCloud1Grd;
+        ctxCloud1.fill();
+
+      // Cloud 2
+        var cloud2 = document.getElementById("cloud2");
+        var ctxCloud2 = cloud2.getContext("2d");
+        var ctxCloud2Grd = ctxCloud2.createLinearGradient(0, 0, 0, 100);
+        ctxCloud2Grd.addColorStop(0,"#ccc");
+        ctxCloud2Grd.addColorStop(1,"white");
+        ctxCloud2.beginPath();
+        ctxCloud2.moveTo(42, 62);
+        ctxCloud2.bezierCurveTo(42, 55, 56, 42, 76, 44);
+        ctxCloud2.bezierCurveTo(82, 22, 126, 12, 143, 44);
+        ctxCloud2.bezierCurveTo(157, 42, 171, 45, 169, 60);
+        ctxCloud2.bezierCurveTo(201, 59, 218, 101, 152, 99);
+        ctxCloud2.bezierCurveTo(132, 116, 70, 111, 58, 94);
+        ctxCloud2.bezierCurveTo(28, 104, 6, 68, 42, 60);
+        ctxCloud2.closePath();
+        ctxCloud2.shadowOffsetX = 0;
+        ctxCloud2.shadowOffsetY = 0;
+        ctxCloud2.shadowBlur = 10;
+        ctxCloud2.shadowColor = "#fff";
+        ctxCloud2.fillStyle = ctxCloud2Grd;
+        ctxCloud2.fill();
+
+      // Cloud 3
+        var cloud3 = document.getElementById("cloud3");
+        var ctxCloud3 = cloud3.getContext("2d");
+        var ctxCloud3Grd = ctxCloud3.createLinearGradient(0, 0, 0, 100);
+        ctxCloud3Grd.addColorStop(0,"#ccc");
+        ctxCloud3Grd.addColorStop(1,"white");
+        ctxCloud3.beginPath();
+        ctxCloud3.moveTo(42, 62);
+        ctxCloud3.bezierCurveTo(42, 55, 56, 42, 76, 44);
+        ctxCloud3.bezierCurveTo(82, 22, 126, 12, 143, 44);
+        ctxCloud3.bezierCurveTo(157, 42, 171, 45, 169, 60);
+        ctxCloud3.bezierCurveTo(201, 59, 218, 101, 152, 99);
+        ctxCloud3.bezierCurveTo(132, 116, 70, 111, 58, 94);
+        ctxCloud3.bezierCurveTo(28, 104, 6, 68, 42, 60);
+        ctxCloud3.closePath();
+        ctxCloud3.shadowOffsetX = 0;
+        ctxCloud3.shadowOffsetY = 0;
+        ctxCloud3.shadowBlur = 10;
+        ctxCloud3.shadowColor = "#fff";
+        ctxCloud3.fillStyle = ctxCloud3Grd;
+        ctxCloud3.fill();
+
+      // Cloud 4
+        var cloud4 = document.getElementById("cloud4");
+        var ctxCloud4 = cloud4.getContext("2d");
+        var ctxCloud4Grd = ctxCloud4.createLinearGradient(0, 0, 0, 100);
+        ctxCloud4Grd.addColorStop(0,"#ccc");
+        ctxCloud4Grd.addColorStop(1,"white");
+        ctxCloud4.beginPath();
+        ctxCloud4.moveTo(74, 62);
+        ctxCloud4.bezierCurveTo(86, 48, 98, 50, 110, 52);
+        ctxCloud4.bezierCurveTo(110, 53, 116, 45, 130, 43);
+        ctxCloud4.bezierCurveTo(139, 22, 190, 12, 202, 46);
+        ctxCloud4.bezierCurveTo(217, 43, 230, 52, 227, 62);
+        ctxCloud4.bezierCurveTo(277, 52, 276, 96, 234, 95);
+        ctxCloud4.bezierCurveTo(221, 103, 211, 115, 185, 102);
+        ctxCloud4.bezierCurveTo(176, 117, 113, 123, 96, 104);
+        ctxCloud4.bezierCurveTo(66, 128, 7, 74, 74, 62);
+        ctxCloud4.closePath();
+        ctxCloud4.shadowOffsetX = 0;
+        ctxCloud4.shadowOffsetY = 0;
+        ctxCloud4.shadowBlur = 15;
+        ctxCloud4.shadowColor = "#fff";
+        ctxCloud4.fillStyle = ctxCloud4Grd;
+        ctxCloud4.fill();
+  </script> 
+</body>
+</html>
